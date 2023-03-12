@@ -1,6 +1,6 @@
 /*
  This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 ~ 2010 Patrick Huy <patrick.huy@frz.cc> 
+ Copyright (C) 2008 ~ 2010 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
 
@@ -20,7 +20,7 @@
  */
 package constants;
 
-import handling.login.Balloon;
+import handling.login.handler.Balloon;
 import java.util.ArrayList;
 import java.util.List;
 import server.ServerProperties;
@@ -48,7 +48,7 @@ public class ServerConstants {
     public static boolean Super_password = false;
     public static String superpw = "";
     public static final List<Balloon> lBalloon = new ArrayList();
-    public static boolean 防卡号 = true;
+    public static boolean AllowRepeatedLogins = Boolean.parseBoolean((ServerProperties.getProperty("ZlhssMs.AllowRepeatedLogins", "true")));
 
     public static boolean getAutoReg() {
         return 自动注册;

@@ -4,3 +4,7 @@ build
 out
 logs/**
 **/**/.DS_Store
+.vscode
+/dist
+**/*.class
+日志

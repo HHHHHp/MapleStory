@@ -1,6 +1,6 @@
 /*
  This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 ~ 2010 Patrick Huy <patrick.huy@frz.cc> 
+ Copyright (C) 2008 ~ 2010 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
 
@@ -502,7 +502,7 @@ public class MapleClient implements Serializable {
                         boolean updatePasswordHashtosha1 = false;
 
                         // Check if the passwords are correct here. :B
-                     
+
                          // if (password_otp.equals(pwd)) { // Check if a
                          // password upgrade is needed. loginok = 0;
                           if ((LoginCryptoLegacy.isLegacyPassword(passhash)) && (LoginCryptoLegacy.checkPassword(pwd, passhash))) {
@@ -538,7 +538,7 @@ public class MapleClient implements Serializable {
         }
         return loginok;
     }
-     
+
     public int login(String login, String pwd, boolean ipMacBanned) {
         int loginok = 5;
         try {
@@ -573,9 +573,8 @@ public class MapleClient implements Serializable {
                     }
                     byte loginstate = getLoginState();
                     //如果卡号了，这个if会导致账号登陆不进去，为了解决卡号问题，把这里设置成永远false
-                    //!ServerConfig.防卡号=true来控制强制登陆,为了让卡号了也能进游戏
-                    //if (!ServerConstants.防卡号 && getLoginState() > MapleClient.LOGIN_NOTLOGGEDIN) { // already loggedin
-                        if (loginstate > MapleClient.LOGIN_NOTLOGGEDIN) { // already loggedin
+                    //ServerConfig.AllowRepeatedLogins=true 可以强制登陆
+                    if (!ServerConstants.AllowRepeatedLogins && getLoginState() > MapleClient.LOGIN_NOTLOGGEDIN) { // already loggedin
                         loggedIn = false;
                         loginok = 7;
                     } else {
